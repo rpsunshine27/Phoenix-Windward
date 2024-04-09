@@ -1,34 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+
 
 public class Dialog : MonoBehaviour
 {
     //dialogue
-    private string[] playerDialog = new string[]{ 
+    public static string[] playerDialog = new string[]{ 
         "???: Ugh... What Happened", 
         "???: Where am I?", 
-        "???: Last thing I remember I was fighting Dark Lord Kilgore"
+        "???: Last thing I remember I was fighting Dark Lord Kilgore",
+        "???: I should try to find a way out of this room",
+        ""
     };
-    private string[] doorDialog = new string[]{
-        "???: *Inhales* LET ME OUT OF HERE!!!"
+    public static string[] doorDialog = new string[]{
+        "???: Huh a door.",
+        "???: Maybe if I yell for help, someone might hear me.",
+        "???: *Inhales*", 
+        "???: LeT mE oUt Of HeRe!!!",
+        "...",
+        "????: Oh my goodness!",
+        "????: Is someone stuck in there?",
+        "????: Hang on, let me unlock the door for you.",
+        "(Unlocking door noises)",
+        ""
     };
-    private string[] maidDialog = new string[]{
-        "Phoenix: My name is Phoenix Windward" 
+    public static string[] maidDialog = new string[]{
+         
     };
-    private string[] currentDialog = null;
-    private int playerIndex = 0;
+    public static string[] currentDialog = null;
+    private static int playerIndex = 0;
 
-    private TMPro.TextMeshProUGUI textbox;
+    private static TMPro.TextMeshProUGUI textbox;
 
     // Start is called before the first frame update
     void Start()
     {
         textbox = GetComponent<TMPro.TextMeshProUGUI>();
-        currentDialog = this.playerDialog;
-        Debug.Log(playerDialog[playerIndex]);
-        textbox.text = playerDialog[playerIndex];
-       
+        currentDialog = playerDialog;
+        ShowText();
         // Debug.Log(playerDialog[playerIndex]);
     }
 
@@ -39,8 +50,20 @@ public class Dialog : MonoBehaviour
         {
             Debug.Log("Return key was pressed.");
             playerIndex += 1;
-             textbox.text = playerDialog[playerIndex];
+             textbox.text = currentDialog[playerIndex];
+            if(currentDialog[playerIndex] == "") {
+                Global.isDialogShowing=false; 
+                if (Enumerable.SequenceEqual(doorDialog, currentDialog)) {
+                    NPC_Maid_Jane_PlayerController.move = true;
+                }
+            }
         }
 
+    }
+
+    public static void ShowText() {
+        playerIndex = 0;
+        textbox.text = currentDialog[playerIndex];
+        Global.isDialogShowing = true;
     }
 }
