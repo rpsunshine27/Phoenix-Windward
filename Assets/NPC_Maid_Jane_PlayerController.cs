@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPC_Maid_Jane_PlayerController : MonoBehaviour
 {
     public static bool move = false;
-    public float speed = -0.01f;
+    public float speed = -0.1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,19 @@ public class NPC_Maid_Jane_PlayerController : MonoBehaviour
                 transform.position.x,
                 transform.position.y + speed 
             );
+            if (transform.position.y <= 2.396174) {
+                
+            }
         }
         
+    } 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        // If the player collided with the door
+        if (other.gameObject.tag == "Player")
+        {move = false;
+            Dialog.currentDialog = Dialog.maidDialog;
+            Dialog.ShowText();
+        }
     }
 }

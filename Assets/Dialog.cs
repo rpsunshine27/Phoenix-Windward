@@ -11,11 +11,12 @@ public class Dialog : MonoBehaviour
         "???: Ugh... What Happened", 
         "???: Where am I?", 
         "???: Last thing I remember I was fighting Dark Lord Kilgore",
-        "???: I should try to find a way out of this room",
+        "???: I should try to find a way out of this room.",
         ""
     };
     public static string[] doorDialog = new string[]{
-        "???: Huh a door.",
+        "???: Huh a door. But it's locked.", 
+        "???: And magic might not work on it.",
         "???: Maybe if I yell for help, someone might hear me.",
         "???: *Inhales*", 
         "???: LeT mE oUt Of HeRe!!!",
@@ -27,6 +28,43 @@ public class Dialog : MonoBehaviour
         ""
     };
     public static string[] maidDialog = new string[]{
+        "???: Oof!",
+        "????: Oh my! I am terribly sorry miss!",
+        "???: I'm fine, I actually should be thanking you for help me.",
+        "???: Who are you anyway?",
+        "Jane: My name is Jane Havelock. I'm a maid here.",
+        "Jane: Might I ask who you are?",
+        "Phoenix: The name's Phoenix Windward, like the game.",
+        "(Cricket noises)",
+        "Jane: What game?",
+        "Phoenix: Um...",
+        "Phoenix: Nevermind about that. Could you tell where I am?",
+        "Jane: That is Lord Kilgore's castle of course!",
+        "Phoenix: ...",
+        "Phoenix: You mean...Your...DARK LORD KILGORE'S MAID?!?", 
+        "Jane: Wait... so your not the new maid?",
+        "Phoenix: Why would you think I'm the new maid?!?",
+        "Jane: Well to be fair you are in a supply closet.",
+        "Phoenix: Really? I guess that makes sense.", 
+        "Phoenix: But it's the biggest supply closet I've ever seen.",
+        "Jane: If your not the new maid...who are you really?",
+        "Phoenix: I am Phoenix Windard, a general a part of the Resistance.",
+        "Phoenix: And too bad for you but I can't let anyone get in the way.",
+        "Jane: Wait I don't think-",
+        "...",
+        "Jane: -your magic is going to work that good.",
+        "Phoenix: My magic...What happened?",
+        "Phoenix: Wait a sec... how do you know I have magic?",
+        "Jane: I...um...", 
+        "Jane: It's not safe to talk here. Come with me.",
+        "Jane: So Kilgore doesn't hear.",
+        "Phoenix: *nods* Ok.",
+        "Jane: There's a secret trap door in the back.",
+        "Jane: I'll meet you at the other side.",
+        ""
+        
+
+        
          
     };
     public static string[] currentDialog = null;
