@@ -6,6 +6,7 @@ public class NPC_Maid_Jane_PlayerController : MonoBehaviour
 {
     public static bool move = false;
     public float speed = -0.1f;
+    private int dialogCount = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,8 +32,14 @@ public class NPC_Maid_Jane_PlayerController : MonoBehaviour
         // If the player collided with the door
         if (other.gameObject.tag == "Player")
         {move = false;
+        if (dialogCount ==0) {
             Dialog.currentDialog = Dialog.maidDialog;
             Dialog.ShowText();
+            dialogCount = 1;
+        } else {
+            Dialog.currentDialog = Dialog.maidDialog2;
+            Dialog.ShowText();
+        }
         }
     }
 }

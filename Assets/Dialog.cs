@@ -6,6 +6,7 @@ using System.Linq;
 
 public class Dialog : MonoBehaviour
 {
+    public GameObject square;
     //dialogue
     public static string[] playerDialog = new string[]{ 
         "???: Ugh... What Happened", 
@@ -30,7 +31,8 @@ public class Dialog : MonoBehaviour
     public static string[] maidDialog = new string[]{
         "???: Oof!",
         "????: Oh my! I am terribly sorry miss!",
-        "???: I'm fine, I actually should be thanking you for help me.",
+        "????: That door always gets jammed.",
+        "???: It's fine, I actually should be thanking you for help me.",
         "???: Who are you anyway?",
         "Jane: My name is Jane Havelock. I'm a maid here.",
         "Jane: Might I ask who you are?",
@@ -52,7 +54,7 @@ public class Dialog : MonoBehaviour
         "Phoenix: And too bad for you but I can't let anyone get in the way.",
         "Jane: Wait I don't think-",
         "...",
-        "Jane: -your magic is going to work that good.",
+        "Jane: -your magic is going to work.",
         "Phoenix: My magic...What happened?",
         "Phoenix: Wait a sec... how do you know I have magic?",
         "Jane: I...um...", 
@@ -60,9 +62,13 @@ public class Dialog : MonoBehaviour
         "Jane: So Kilgore doesn't hear.",
         "Phoenix: *nods* Ok.",
         "Jane: There's a secret trap door in the back.",
-        "Jane: I'll meet you at the other side.",
+        "Jane: I'll meet you on the other side.",
         ""
-        
+         };
+    public static string[] maidDialog2 = new string[]{
+        "Jane: There's a secret trap door in the back",
+        "Jane: I'll meet you on the other side.",
+        ""
 
         
          
@@ -84,12 +90,15 @@ public class Dialog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        square.active = Global.isDialogShowing;
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            // square.active=true;
             Debug.Log("Return key was pressed.");
             playerIndex += 1;
              textbox.text = currentDialog[playerIndex];
             if(currentDialog[playerIndex] == "") {
+                // square.active=false;
                 Global.isDialogShowing=false; 
                 if (Enumerable.SequenceEqual(doorDialog, currentDialog)) {
                     NPC_Maid_Jane_PlayerController.move = true;
@@ -100,6 +109,7 @@ public class Dialog : MonoBehaviour
     }
 
     public static void ShowText() {
+    //  square.active=true;   
         playerIndex = 0;
         textbox.text = currentDialog[playerIndex];
         Global.isDialogShowing = true;
