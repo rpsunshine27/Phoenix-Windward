@@ -69,6 +69,12 @@ public class Dialog : MonoBehaviour
         "Jane: There's a secret trap door in the back",
         "Jane: I'll meet you on the other side.",
         ""
+         }; 
+    public static string[] maidDialog3 = new string[]{
+        "Jane: There you are!",
+        "Jane: Follow me, and try your best not to make any noise.",
+        "Phoenix: *Nods*",
+        ""
 
         
          
