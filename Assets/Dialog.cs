@@ -80,7 +80,7 @@ public class Dialog : MonoBehaviour
          
     };
     public static string[] currentDialog = null;
-    private static int playerIndex = 0;
+    public static int playerIndex = 0;
 
     private static TMPro.TextMeshProUGUI textbox;
 
