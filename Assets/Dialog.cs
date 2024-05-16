@@ -75,6 +75,13 @@ public class Dialog : MonoBehaviour
         "Jane: Follow me, and try your best not to make any noise.",
         "Phoenix: *Nods*",
         ""
+         };
+    public static string[] maidDialog4 = new string[]{
+        "Jane: This should be a safe place to talk.",
+        "Phoenix: Is this your room?",
+        "Jane: Yep! Feel free to look around.",
+        "Jane: Come back to me when you are ready.",
+        ""
 
         
          
